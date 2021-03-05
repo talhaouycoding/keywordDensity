@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ToolController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("/tool",[ToolController::class,'index'])->name('tool.index');
+
+Route::post("/tool/calculate_density",[ToolController::class, 'calculate'])->name('tool.calculate');
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
